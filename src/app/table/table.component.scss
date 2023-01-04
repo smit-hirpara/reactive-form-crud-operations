@@ -1,0 +1,48 @@
+.example-full-width {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
+}
+
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px;
+}
+
+tr.no-data-row{
+  display: flex;
+  border-width: 0;
+  border-style: solid;
+  align-items: center;
+  box-sizing: border-box;
+  td{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    word-wrap: break-word;
+    min-height: inherit;
+    height: 100%;
+  }
+}
+.body {
+  width: auto;
+  height: 90vh;
+  position: relative;
+}
+.userstable {
+  position: absolute;
+  width: 100%;
+  top: 30%;
+  box-shadow: 20px 20px 50px 15px grey;
+}
+.addbutton {
+  position: absolute;
+  top: 95%;
+  left: 105%;
+}

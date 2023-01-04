@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "fName": "smit",
+      "lName": "hirpara",
+      "email": "smit1232@gmail.com",
+      "mobile": "1234567899",
+      "id": 1
+    },
+    {
+      "fName": "shivma",
+      "lName": "hirpara",
+      "email": "shivam1223@gmail.com",
+      "mobile": "1234567899",
+      "id": 2
+    },
+    {
+      "fName": "om",
+      "lName": "rathod",
+      "email": "meet123@gmail.com",
+      "mobile": "1233211234",
+      "id": 3
+    },
+    {
+      "fName": "utsav",
+      "lName": "hirpara",
+      "email": "utsavc123@gmial.com",
+      "mobile": "1233212234",
+      "id": 4
+    }
+  ]
+}

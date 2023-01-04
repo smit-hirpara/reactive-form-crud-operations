@@ -1,0 +1,66 @@
+<div class="body">
+    <div class="inputboxes p-3 w-75 me-auto rounded ms-auto form">
+        <div class="text-center my-2"><i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i></div>
+        <form [formGroup]="loginform">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="fName" class="inputfield">
+                    <mat-error *ngIf="fnameFormControl.hasError('fName') && !fnameFormControl.hasError('required')">
+                        Please enter a First Name
+                    </mat-error>
+                    <mat-error *ngIf=" fnameFormControl.hasError('required')">
+                        First Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lName" class="inputfield">
+                    <mat-error *ngIf="lnameFormControl.hasError('lName') && !lnameFormControl.hasError('required')">
+                        Please enter a Last Name
+                    </mat-error>
+                    <mat-error *ngIf=" lnameFormControl.hasError('required')">
+                        Last Name is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput [errorStateMatcher]="matcher"
+                        placeholder="Ex. pat@example.com" formControlName="email" class="inputfield">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Mobile</mat-label>
+                    <span matPrefix>+1 &nbsp;</span>
+                    <input type="tel" matInput placeholder="555-555-1234" formControlName="mobile" class="inputfield">
+                    <mat-icon matSuffix>mode_edit</mat-icon>
+                    <mat-error *ngIf="phnoFormControl.hasError('mobile') && !phnoFormControl.hasError('required')">
+                        Please enter a valid Mobile Number
+                    </mat-error>
+                    <mat-error *ngIf="phnoFormControl.hasError('required')">
+                        Mobile Number is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="mx-1 w-100 d-flex">
+                <button mat-raised-button color="primary" (click)="updateuser()" [disabled]="loginform.invalid" *ngIf="usersid" class="w-50 mx-1">Update</button>
+                <button mat-raised-button color="accent" (click)="postuser()" [disabled]="loginform.invalid" *ngIf="!usersid" class="w-50 mx-1">Add</button>
+                <button mat-raised-button color="warn" (click)="cancelfunction(loginform)" class="w-50 mx-1">Cancel</button>
+            </div>
+        </form>
+    </div>
