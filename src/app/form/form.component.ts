@@ -41,7 +41,7 @@ export class FormComponent {
     });
     
     // navigate table component
-    this.router.navigate(['/tablecompo']);
+    // this.router.navigate(['/tablecompo']);
   }
 
 
@@ -67,7 +67,7 @@ export class FormComponent {
       this.getusers();
 
       // navigate table component
-      this.router.navigate(['/tablecompo']);
+      // this.router.navigate(['/tablecompo']);
 
     },
     err => {
@@ -82,25 +82,11 @@ export class FormComponent {
     })
   }
 
-  fnameFormControl = new FormControl('',[Validators.required, Validators.minLength(3)]);
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  phnoFormControl = new FormControl('',[Validators.required, Validators.minLength(10)]);
-  lnameFormControl = new FormControl('',[Validators.required,Validators.minLength(4)]);
-
-  matcher = new MyErrorStateMatcher();
 }
 
-export class MyErrorStateMatcher implements MyErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+
 
 export class fildsname {
-  setValue() {
-    throw new Error('Method not implemented.');
-  }
   id:any;
   fName:any;
   lName:any;

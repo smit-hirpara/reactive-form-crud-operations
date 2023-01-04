@@ -6,10 +6,10 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>First Name</mat-label>
                     <input matInput formControlName="fName" class="inputfield">
-                    <mat-error *ngIf="fnameFormControl.hasError('fName') && !fnameFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['fName'].hasError('fName') && !loginform.controls['fName'].hasError('required')">
                         Please enter a First Name
                     </mat-error>
-                    <mat-error *ngIf=" fnameFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['fName'].hasError('required')">
                         First Name is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
@@ -20,10 +20,10 @@
                 <mat-form-field class="example-full-width">
                     <mat-label>Last Name</mat-label>
                     <input matInput formControlName="lName" class="inputfield">
-                    <mat-error *ngIf="lnameFormControl.hasError('lName') && !lnameFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['lName'].hasError('lName') && !loginform.controls['lName'].hasError('required')">
                         Please enter a Last Name
                     </mat-error>
-                    <mat-error *ngIf=" lnameFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['lName'].hasError('required')">
                         Last Name is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
@@ -33,12 +33,12 @@
             <div>
                 <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput [errorStateMatcher]="matcher"
+                    <input type="email" matInput
                         placeholder="Ex. pat@example.com" formControlName="email" class="inputfield">
-                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['email'].hasError('email') && !loginform.controls['email'].hasError('required')">
                         Please enter a valid email address
                     </mat-error>
-                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['email'].hasError('required')">
                         Email is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
@@ -49,17 +49,17 @@
                     <span matPrefix>+1 &nbsp;</span>
                     <input type="tel" matInput placeholder="555-555-1234" formControlName="mobile" class="inputfield">
                     <mat-icon matSuffix>mode_edit</mat-icon>
-                    <mat-error *ngIf="phnoFormControl.hasError('mobile') && !phnoFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['mobile'].hasError('mobile') && !loginform.controls['mobile'].hasError('required')">
                         Please enter a valid Mobile Number
                     </mat-error>
-                    <mat-error *ngIf="phnoFormControl.hasError('required')">
+                    <mat-error *ngIf="loginform.controls['mobile'].hasError('required')">
                         Mobile Number is <strong>required</strong>
                     </mat-error>
                 </mat-form-field>
             </div>
             <div class="mx-1 w-100 d-flex">
-                <button mat-raised-button color="primary" (click)="updateuser()" [disabled]="loginform.invalid" *ngIf="usersid" class="w-50 mx-1">Update</button>
-                <button mat-raised-button color="accent" (click)="postuser()" [disabled]="loginform.invalid" *ngIf="!usersid" class="w-50 mx-1">Add</button>
+                <button mat-raised-button color="primary" (click)="updateuser(); loginform.reset()" [disabled]="loginform.invalid" *ngIf="usersid" class="w-50 mx-1">Update</button>
+                <button mat-raised-button color="accent" (click)="postuser(); loginform.reset()" [disabled]="loginform.invalid" *ngIf="!usersid" class="w-50 mx-1">Add</button>
                 <button mat-raised-button color="warn" (click)="cancelfunction(loginform)" class="w-50 mx-1">Cancel</button>
             </div>
         </form>
