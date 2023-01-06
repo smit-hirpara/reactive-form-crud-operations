@@ -34,7 +34,7 @@ export class FormService {
   }
    // get users data by id
   getcurrentdata(id:any) {
-    return this.http.get<any>(this.jsonserverurl+"/"+id)
+    return this.http.get<any>(this.jsonserverurl+"/"+id);
   }
 
   // update user

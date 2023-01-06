@@ -27,11 +27,13 @@ export class FormComponent {
     });
     this.getusers();
      
-    this.usersid = this.activatedroute.snapshot.params['id']
-    this.formservice.getcurrentdata(this.usersid).subscribe((res) => {
+    this.usersid = this.activatedroute.snapshot.params['id'];
 
-      this.loginform.patchValue(res);
-    });
+    if(this.usersid) {
+      this.formservice.getcurrentdata(this.usersid).subscribe((res) => {
+        this.loginform.patchValue(res);
+      });
+    }
   }
 
   // update user() 
@@ -41,15 +43,15 @@ export class FormComponent {
     });
     
     // navigate table component
-    // this.router.navigate(['/tablecompo']);
+    this.router.navigate(['/tablecompo']);
   }
 
 
 
   // cencal form
   cancelfunction(loginform:any) {
-    loginform.reset();
-
+    // loginform.reset();
+    this.loginform = new FormGroup('');
     // navigate table component
     this.router.navigate(['/tablecompo']);
   }
@@ -61,14 +63,36 @@ export class FormComponent {
     this.userModeObj.email = this.loginform.controls['email'].value;
     this.userModeObj.mobile = this.loginform.controls['mobile'].value;
 
+    // this.formservice.adduser(this.userModeObj).subscribe({
+    //   next: x => {
+    //     alert('user addes' + x);
+    //   }, 
+    //   error: err => {
+    //     console.log('somthisng wont worang' + err);
+    //   },
+    //   complete: () => {
+    //     this.loginform = new FormGroup({});
+    //   }
+    // })
+
+
+
     this.formservice.adduser(this.userModeObj).subscribe(res => {
       console.warn(res);
-      alert("user addes successfully");
+      alert("user added successfully");
       this.getusers();
 
-      // navigate table component
-      // this.router.navigate(['/tablecompo']);
+      // 1
+      // this.loginform.reset({});
 
+      // 2
+      // this.loginform = new FormGroup({});
+
+      // 3
+      // this.loginform = new FormGroup('');
+
+      // navigate table component
+      this.router.navigate(['/tablecompo']);
     },
     err => {
       alert("somthing wont wrong, plese try again");
@@ -81,7 +105,6 @@ export class FormComponent {
       this.userdata =res;
     })
   }
-
 }
 
 

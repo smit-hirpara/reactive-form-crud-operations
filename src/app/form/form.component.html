@@ -58,8 +58,8 @@
                 </mat-form-field>
             </div>
             <div class="mx-1 w-100 d-flex">
-                <button mat-raised-button color="primary" (click)="updateuser(); loginform.reset()" [disabled]="loginform.invalid" *ngIf="usersid" class="w-50 mx-1">Update</button>
-                <button mat-raised-button color="accent" (click)="postuser(); loginform.reset()" [disabled]="loginform.invalid" *ngIf="!usersid" class="w-50 mx-1">Add</button>
+                <button mat-raised-button color="primary" (click)="updateuser(); loginform.reset({})" [disabled]="loginform.invalid" *ngIf="usersid" class="w-50 mx-1">Update</button>
+                <button mat-raised-button color="accent" (click)="postuser(); loginform.reset({})" [disabled]="loginform.invalid" *ngIf="!usersid" class="w-50 mx-1">Add</button>
                 <button mat-raised-button color="warn" (click)="cancelfunction(loginform)" class="w-50 mx-1">Cancel</button>
             </div>
         </form>
